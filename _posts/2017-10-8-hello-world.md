@@ -1,9 +1,9 @@
 ---
 layout: post
-title: You're up and running!
+title: RoundCornerLayout 활용 및 예제
 tags:
-  - test
-  - tags
+  - android
+  - ui
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
