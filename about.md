@@ -4,14 +4,16 @@ title: About
 permalink: /about/
 ---
 
-![_config.yml]({{site.baseurl }}/images/config.png)
+![_config.yml]({{site.baseurl }}/images/profile.png)
 
-Some information about you!
+안드로이드 개발을 하고 있는 공부하는 개발자입니다.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+안녕하세요. 만나서 반갑습니다!
+
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+문의가 있으시면 하단의 이메일로 연락부탁드립니다.
+[wowterry9044@gmail.com](mailto:wowterry9044@gmail.com)
