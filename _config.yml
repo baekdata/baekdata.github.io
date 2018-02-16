@@ -1,93 +1,81 @@
-# # # # # # # # # # # # #
-#   K i k o - p l u s   #
-# # # # # # # # # # # # #
+#
+# This file contains configuration flags to customize your site
+#
 
-# Basic
-name:               "Kiko Plus"
+# Name of your site (displayed in the header)
+name: Your Username
 
-author:
-  facebook:         your-id
-  youtubeUser:      your-id
-  youtubeChannel:   your-id
-  twitter:          your-id
-  github:           your-id
-  stackoverflow:    your-id
-  quora:            your-id
-  linkedin:         your-id
-  pinterest:        your-id
-  googlePlus:       your-id
-  instagram:        your-id
-  reddit:           your-id
-  medium:           your-id
-  tumblr:           your-id
-  email:            your-id@your-email.com
+# Short bio or description (displayed in the header)
+description: Programmer From Somewhere On Earth
 
-copyright:
-  year:             2017
-  name:             Kiko
 
-# Google-analytics
-google-analytics:
-  id:               ""
+#
+# Flags below are optional
+#
 
-# Disqus
+# Includes an icon in the footer for each username you enter
+footer-links:
+  dribbble:
+  email: agarwal.akshay.akshay8@gmail.com
+  facebook:
+  flickr:
+  github: AkshayAgarwal007
+  instagram:
+  linkedin: akshay-agarwal-782018a4
+  pinterest:
+  rss: # just type anything here for a working RSS icon
+  twitter: 
+  stackoverflow: # your stackoverflow profile, e.g. "users/3807565/akshay"
+  youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: # anything in your profile username that comes after plus.google.com/
+
+
+# Enter your Disqus shortname (not your username) to enable commenting on posts
+# You can find your shortname on the Settings page of your Disqus account
 disqus:
-  id:               "kiko-plus"
 
-# URL
-url:                "https://AWEEKJ.github.io" # the base hostname & protocol for your site
-# url:                "http://localhost:4000" # use this url when you develop
-baseurl:            "/Kiko-plus" # the subpath of your site, e.g. /blog
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics:
 
+# Your website URL (e.g. http://akshayagarwal007.github.io)
+# Used for Sitemap.xml and your RSS feed
+url:
 
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:           Asia/Seoul
-permalink:          /:year-:month-:day/:title/
+# If you're hosting your site at a Project repository on GitHub pages
+# (http://yourusername.github.io/repository-name)
+# and NOT your User repository (http://yourusername.github.io)
+# then add in the baseurl here, like this: "/repository-name"
+baseurl: ""
 
-# Pagination
-paginate:           5
-paginate_path:      /page:num/
+#
+# !! You don't need to change any of the configuration flags below !!
+#
 
-# Markdown
-markdown:           kramdown
+permalink: /:title/
+
+# Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
-  input:            GFM
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
 
-# Navigation
-nav:
-  - name:           "About"
-    url:            "/about"
-  - name:           "Archive"
-    url:            "/archive"
-  - name:           "Tags"
-    url:            "/tags"
-  - name:           "Github"
-    url:            "https://github.com/AWEEKJ/Kiko-plus"
-
-# Sass
+# Set the Sass partials directory, as we're using @imports
 sass:
-  sass_dir:         _sass
-  style:            :compressed
+  style: :expanded # You might prefer to minify using :compressed
 
-# Scopes
-defaults:
-  -
-    scope:
-      path:         ""
-      type:         "pages"
-    values:
-      layout:       "page"
-  -
-    scope:
-      path:         ""
-      type:         "posts"
-    values:
-      layout:       "post"
-
-# jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
+# Use the following plug-ins
 gems:
-  - jekyll-seo-tag
-  - jekyll-paginate
-  - jekyll-admin
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
-exclude:            [vendor]
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME

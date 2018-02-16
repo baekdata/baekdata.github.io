@@ -1,132 +1,137 @@
-> NOTE! Kiko-plus theme will not be update anymore. Please see the new and easier version, [kiko-now](https://github.com/AWEEKJ/kiko-now) theme which is mixed [jekyll-now](https://github.com/barryclark/jekyll-now) and Kiko-plus.
+# Jekyll-Mono
 
-# Kiko Plus Theme
+**Jekyll-Mono** is a simple and elegant GitHub Profile cum Blog theme based on Barry Clark's [Jekyll-Now](https://github.com/barryclark/jekyll-now). It's a result of my attempt to learn **Jekyll** and create a minimalistic theme to put up my CV alongwith some blog posts.
 
-![image](/images/image.png)
+It is crafted with 💙 by [Akshay Agarwal](https://github.com/AkshayAgarwal007).
 
-You can see live demo [here](https://aweekj.github.io/Kiko-plus). This theme is inspired by [Kiko](http://github.com/gfjaru/Kiko) theme.
-
-## Features
-
-- Disqus comment system
-- Google analytics
-- Pagination support
-- Custom tags
-- SEO support
+![Jekyll-Mono Home Page](/images/ss.png)
 
 
-## Installation
+## What is Jekyll?
 
-#### Method 1: new master's repository (The Best)
+It is a static site generator. It takes your content written in Markdown, passes it through your templates and spits it out as a complete static website, ready to be served using GitHub pages for free.
+Because your entire blog is static it serves and perform faster. It consumes less web resources namely memory and I/O.
 
-1. First [fork](https://github.com/AWEEKJ/Kiko-plus/fork) it.
-2. Change your forked repository name _Kiko-plus_ to __USERNAME.github.io__ where __USERNAME__ is your github username.
-3. Access your new blog via [https://username.github.io](https://username.github.io).
-4. [See configuration](#configuration).
+## Getting Started
 
-#### Method 2: gh-pages in existing repository
+Let's quickly set up your new blog in a matter of minutes.
 
-1. Create a new branch called _gh-pages_ in the repository where you want to add a template [managing branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/).
-2. From command line run `git clone https://github.com/AWEEKJ/Kiko-plus.git` - this will clone _Kiko-plus_ template to your computer.
-3. Create new branch `git checkout -b gh-pages` where _gh-pages_ will be your branch name.
-4. Add remote, which is your repo from the first step, to your new branch `git remote add gh-pages https://github.com/<yourName>/<yourMaster>/gh-pages`. _yourName_ is your account name and _yourMaster_ is your repository.
-5. Push new branch to remote `git push gh-pages`.
-6. Update `_config.yml` file by changing `baseurl: "<branchName>"` _branchName_ is your branch name where _gh-pages_ resides. See [configuration](#configuration).
+### Fork this repository
 
-## Configuration
+Hit the “Fork” button in the top-right corner of the repository to fork a copy of this theme to your GitHub account and rename it to **yourusername.github.io** and then visit https://yourusername.github.io and you'll be able to see your newly created blog using Jekyll-Mono.
 
-All configuration is done via `_config.yml` file which you will find in your main repo folder. Change this `<something>` to yours.
+### Customise Jekyll-Mono
 
-### Basic
+So now your blog is live with its default settings. Let's customise it now.
 
-- Config your blog name.
+Edit the _config.yml and enter your site name and description. You can easily turn on Google Analytics tracking, Disqus commenting and cool loking social icons here too.
 
-```yml
-name: <blog-name>
+Jekyll-Mono also comes with the option of setting up the color scheme of your blog. You can do this by editing _variables.scss that lies inside the _sass folder. You can change the main theme color by simply replacing the current hex color value of `$mono` with the one of your choice. A few main theme sample colors are included in there as comments. Apart from the main theme color you can also change the header link color, navbar hover color, hyperlink color as well as the color of the various headings.
+
+A look at the customisations you can do with _variable.scss
+
+```
+// Main theme colors 
+// Some cool main theme colors(violet:#8476ad;blue:#5cacee;red:#ff7373,#ff6f69;green:#6acf64,#2ddbb3;orange:#ffa268)
+
+$mono-color:#8476ad;                // main theme color(header, links, footer icons, buttons, post-title)
+$hl-color: $darkGray;              // header link color (author name and posted on date) for blog post meta 
+$navbar-hover-color:$gray;        // navbar hover color (site name and navbar links hover color)
+$link-color: $darkerGray;        // normal hyperlink color other than the ones above.
+
+
+// Heading colors
+// You can play around with these too!
+$h1-color: $mono-color;
+$h2-color: $mono-color; 
+$h3-color: $darkerGray; 
+$h4-color: $gray;
+``` 
+Have a look at Jekyll-Mono with four different main theme colors.
+ 
+![Jekyll Mono in 4 different colors](/images/ss-color.png)
+
+Finally you need to set up your avatar. Pick up your avatar, resize it to 220x220px simply using paint or any editor of your choice and upload it to the images folder. Now open _variables.scss, you'll see something like this `$avatar: "/images/avatar.jpg";`. Here change the avatar.jpg to what you have uploaded just now.
+
+
+### Start Blogging
+
+Publish your first blog post by editing /_posts/2016-03-06-Eternal-Lorem-Ipsum.md. [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) might come in handy while writing your blog posts in Markdown. If you are not comfortable with writing in Markdown you can use [Prose](http://prose.io/) for writing your blog posts. [This](https://developmentseed.org/blog/2012/june/25/prose-a-content-editor-for-github/s) will help you in setting up prose.
+
+![Post](/images/post.PNG)
+
+To create a post just click on create new file button in /_posts/. Create a new file with the following naming convention: **year-month-day-title.md**. Also make sure to include the front-matter at the top of each new blog post.
+
+You can see the front matter at the top of /_posts/2016-03-06-Eternal-Lorem-Ipsum.md. It looks something like this. You have to change the title and author according to your post. The layout will remain the same.
+
+```
+--- 
+layout: post
+title: The Eternal Lorem Ipsum Placeholder Text Here
+author: Author Name
+---
+
 ```
 
-- These configuration in `author:` is for links to icons in footer. If you want to add more link icons, modify `_includes/footer.html` file.
+### About and Projects Page
 
-```yml
-author:
-  facebook:         your-id
-  twitter:          your-id
-  github:           your-id
-  linkedin:         your-id
-  medium:           your-id
-  tumblr:           your-id
-  email:            your-id@your-email.com
-```
+In the parent folder you'll find about.md and projects.md. These are templates for helping you to set up your biodata/CV and projects that will be available at yourusername.github.io/about and yourusername.github.io/projects respectively. Again you can edit it in Markdown on GitHub or using Prose as per your choice.
 
-- Change copyright year and name in footer.
 
-```yml
-copyright:
-  year:             2017
-  name:             Kiko
-```
+## Demo
 
-### Google analytics
+You can see the live demo of this theme at http://akshayagarwal007.github.io/Jekyll-Mono/
 
-- Change this to your Google Analytic ID.
+## Local Development
 
-```yml
-google-analytics:
-  id:               "your-id"
-```
+For setting up your development environment you can follow the official Jekyll [Documentation](https://jekyllrb.com/docs/installation/). It's a little bit complicated for Windows users. Let's see how it's done on windows:
 
-### Disqus
+1. **Install Chocolatey**. **[Chocolatey](https://chocolatey.org)** is a package manager for windows. It's awesome. 
+   Open a command propmt with administrator access. Paste this. Hit Enter and restart the command prompt.
+   
+   ```
+   @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+   
+   ```
 
-- Change this to your Disqus short name.
+2. **Install Ruby** : In your command prompt type `choco install ruby -y`.
+ Hit Enter. After installation restart the cmd with administrator privileges.
 
-```yml
-disqus:
-  id:               "your-id"
-```
+3. **Install Jekyll/Sass (plug-ins used by GitHub Pages)**: `gem install github-pages`
 
-### URL
+4. **Clone your fork of Jekyll-Mono** `git clone https://github.com/yourusername/yourusername.github.io.git`
 
-- Config your domain.
+5. **Serve the site** by `jekyll serve`. It regenerates itself after any changes has been made.
 
-```yml
-url: "https://<your-name>.github.io"
-```
+6. **View your site** at http://127.0.0.1:4000/
 
-- **NOTE** When if running locally, change url to 
+7. If you make any changes to _config.yml you'll need to rebuild the site using `jekyll build` and then again a `jekyll serve` to serve it. You'll need to do a rebuild only if you want to see the changes locally, else you can simply commit your changes and push them to your GitHub repo, GitHub pages will rebuild and serve your website.
 
-```yml
-url: "https://localhost:4000"
-```
+## Credits
 
-- Change this to your branch name where _gh-pages_ resides. 
-- **NOTE** apply only if you used __Method 2__ for installation.
+* [Barry Clark](https://github.com/barryclark) for creating [Jekyll-Now](https://github.com/barryclark/jekyll-now) on which this theme is based.
+* [Manoela Ilic](https://github.com/crnacura) of Codrops for writing awesome articles on web design.
+* [David Miller](https://github.com/davidtmiller) of Blackrock Digital for making awesome open source themes.
+* [Jekyll](https://github.com/jekyll/jekyll) - Thanks to its creator and contributors.
+* [Font-Awesome](http://fontawesome.io) - Thanks to its creator and contributors.
 
-```yml
-baseurl: "/<branch-name>"
-```
+## Contributing
 
-## Run in Local
-
-1. Download or clone your remote repository.
-2. Go inside folder. First, run `rake geminstall`. 
-3. Second, run `jekyll serve` or `rake preview`. This will build a website which you can access [https://localhost:4000](https://localhost:4000). Make sure that `url` in `_config.yml` file is `url: "https://localhost:4000"`. You need to have [Jekyll](https://jekyllrb.com/docs/installation/) installed to do this.
-
-## Rakefile Usage
-
-```bash
-# Create new post
-$ rake post title="A Title" [date="2015-08-16"] [tags="[tag1, tag2]"] 
-
-# Create new draft post
-$ rake draft title="A Title" [date="2015-08-16"] [tags="[tag1, tag2]"]
-
-# Install Jekyll Plugins. Do before running in local.
-$ rake geminstall
-
-# Run in Local
-$ rake preview
-```
+* Found a bug? Report it on GitHub [Issues](https://github.com/AkshayAgarwal007/Jekyll-Mono/issues) and include a code sample.
+* [Fork](https://github.com/AkshayAgarwal007/Jekyll-Mono/fork) the repository and start your own blog using it and let me know about it so that I can include a reference to it here. Probably the best way you can contribute :)
+* If you find anything that's wrong or want to talk to me about anything related to this theme or want to contribute in any way, please feel free to [mail me](mailto:agarwal.akshay.akshay8@gmail.com).
 
 ## License
 
-This theme is released under MIT License.
+Jekyll-Mono is licensed under [MIT](https://github.com/AkshayAgarwal007/Jekyll-Mono/blob/master/LICENSE.txt).
+
+
+
+
+
+
+
+
+
+
+  
