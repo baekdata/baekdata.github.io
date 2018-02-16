@@ -1,185 +1,142 @@
 ---
 layout: default
 ---
+<div class="post">
 
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading" style="padding: 30px 0">
-                    <h1>{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% endif %}
-                    <span class="meta">Posted by {{ page.author }} on {{ page.date | date: "%B %-d, %Y" }}</span>	
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<div class="post-header-container {% if page.cover %}has-cover{% endif %}" {% if page.cover %}style="background-image: url({{ page.cover | prepend: site.baseurl }});"{% endif %}>
+  <div class="scrim {% if page.cover %}has-cover{% endif %}">
+    <header class="post-header">
+      <h1 class="title">{{ page.title }}</h1>
+      <p class="info">by <strong>{{ page.author }}</strong></p>
+    </header>
+  </div>
+</div>
 
+<div class="wrapper">
 
+{% unless page.cover %} {% include page_divider.html %} {% endunless %}
 
+<section class="post-meta">
+  <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+  <div class="post-categories">
+  {% if page.categories.size > 0 %}in {% for cat in page.categories %}
+    {% if site.jekyll-archives %}
+    <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
+    {% else %}
+    <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
+    {% endif %}
+  {% endfor %}{% endif %}
+  </div>
+</section>
 
-
-{% for post in site.posts %}
-	
-	{% if post.title != page.title and post.author == page.author %}
-	
-	<div class="float-left">
-	<div class="recentpost" style="padding: 10px">
-	
-	<h4> Recently by the same author: </h4> 
-	
-	<hr class="style-one">
-	
-	<a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title"> {{ post.title }}</h2></a>
-	
-	{% if post.subtitle %}
-		<h4 class="post-subtitle">{{ post.subtitle }}</h4>
-	{% endif %}
-	
-	<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-	
-	<div class="notepad-index-post-tags" style="">
-	{% for tag in post.tags %}<a href="{{ site.baseurl }}/search/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
-	</div> 
-	
-			{% for member in site.data.members %}
-{% if member.name == page.author %} 
-
-<hr class="style-one">
-
-	<img src="{{ member.img }}" style="margin-top:0px; margin-bottom:5px; margin:auto; width:120px !important; border-radius: 50%;">
-	
-	<h3>{{ member.name }}</h3>
-	
-	<h4>{{ member.role }}</h4>
-	
-	{% if member.github %} 
-	<a href="https://github.com/{{ member.github }}" title="Github"><img src="{{ "/img/icons/github-icon.png " | prepend: site.baseurl }}" style="height:50px; float:right; margin-bot:10px"></a>
-	{% endif %}
-	{% if member.gplus %}
-	<a href="{{ member.gplus }}" title="Google Plus"><img src="{{ "/img/icons/gplus-icon.png " | prepend: site.baseurl }}" style="height:37px; float:right; margin-top:6px"></a>
-	{% endif %}
-	{% if member.url %}
-	<a href="{{ member.url }}" title="Google Plus"><img src="{{ "/img/icons/url-icon.png "| prepend: site.baseurl }}" style="height:33px; float:right; margin-top:9px;  margin-right: 10px"></a>
-	{% endif %}
-	
-{% endif %}
-{% endfor %}
-	
-	</div>
-	</div>
-	
-	{% assign recentpost = post.title %}
-	
-	{% endif %}
-		
-	{% break %}	
-	
-{% endfor %}
-
-<!-- Also Interesting -->
-
-{% assign relevantpostcount = 0 %}
-{% for post in site.posts %}
-	
-	{% if post.title != page.title and post.title != recentpost %} 
-	{% for tag in post.tags %}
-	
-		{% if page.tags contains tag and relevantpostcount == 0 %} 
-		
-		<div class="float-right">
-		<div class="relevantpost" style="padding: 10px">
-		
-		
-		<h4> You may find interesting: </h4> 
-		
-		<hr class="style-one">
-		
-		<a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title"> {{ post.title }}</h2></a>
-		
-		{% if post.subtitle %}
-			<h4 class="post-subtitle">{{ post.subtitle }}</h4>
-		{% endif %}
-		
-		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-		
-		<div class="notepad-index-post-tags" style="">
-		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
-		</div> 
-		
-		{% assign relevantpostcount = 1 %}
-		
-		{% continue %}	
-		
-		{% endif %}	
-		
-		{% if page.tags contains tag and relevantpostcount == 1 %} 
-		
-		<hr class="style-one">
-		
-		<a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title"> {{ post.title }}</h2></a>
-		
-		{% if post.subtitle %}
-			<h4 class="post-subtitle">{{ post.subtitle }}</h4>
-		{% endif %}
-		
-		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-		
-		<div class="notepad-index-post-tags" style="">
-		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
-		</div> 
-		
-		{% assign relevantpostcount = 2 %}
-		
-		{% break %}	
-		
-		{% endif %}	
-		
-	{% endfor %}
-	{% endif %}
-	
-{% endfor %}
-
-		</div>
-		</div>
-
-<!-- Post Content -->
-{% include imagezoom.html %}
-
-<article>
-    <div id="content" class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-				{{ content | markdownify }}
-
-                <hr>
-
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-                    </li>
-                    {% endif %}
-                </ul>
-
-            </div>
-        </div>
-    </div>
+<article class="post-content">
+  {{ content }}
 </article>
 
-<hr>
+{% if site.jekyll-archives %}
+{% if page.tags.size > 0 %}
+<section class="tags">
+  <strong>Tags:</strong> {% for tag in page.tags %}<a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a>{% if forloop.last == false %},&nbsp;{% endif %}{% endfor %}
+</section>
+{% endif %}
+{% endif %}
 
-{% include _comments.html %}
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
+</section>
 
-<hr>
+<section class="share">
+  <span>Share: </span>
+  {% for social in site.social %}
+    {% capture full_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+    {% if social.name == "Twitter" and social.share == true %}
+      <a href="//twitter.com/share?text={{ page.title | cgi_escape }}&url={{ full_url | cgi_escape}}&via={{social.username}}"
+        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+      </a>
+    {% endif %}
+    {% if social.name == "Facebook" and social.share == true %}
+      <a href="//www.facebook.com/sharer.php?t={{ page.title | cgi_escape }}&u={{ full_url | cgi_escape}}"
+        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+      </a>
+    {% endif %}
+    {% if social.name == "Google+" and social.share == true %}
+      <a href="//plus.google.com/share?title={{ page.title | cgi_escape }}&url={{ full_url | cgi_escape}}"
+        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+      </a>
+    {% endif %}
+    {% if social.name == "LinkedIn" and social.share == true %}
+      <a href="//www.linkedin.com/shareArticle?mini=true&url={{ full_url | cgi_escape}}"
+        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+      </a>
+    {% endif %}
+    {% if social.name == "Pinterest" and social.share == true %}
+      <a href="//www.pinterest.com/pin/create/button/?description={{ page.title | cgi_escape }}&url={{ full_url | cgi_escape}}&media={{ site.url }}{% if page.cover %}{{ page.cover | prepend: site.baseurl  }}{% elsif site.cover %}{{ site.cover | prepend: site.baseurl }}{% else %}{{ site.logo | prepend: site.baseurl }}{% endif %}"
+        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+      </a>
+    {% endif %}
+    {% if social.name == "Reddit" and social.share == true %}
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('{{ full_url }}') + '&title={{page.title}}'; return false">
+        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+      </a>
+    {% endif %}
+    {% if social.name == "Hacker News" and social.share == true %}
+      <a href="//news.ycombinator.com/submitlink" onclick="window.location = '//news.ycombinator.com/submitlink?u=' + encodeURIComponent('{{ full_url }}') + '&t={{page.title}}'; return false">
+        <i class="fa fa-{{ social.icon | remove_first: '-square' }} fa-lg"></i>
+      </a>
+    {% endif %}
+  {% endfor %}
+</section>
+{% if site.inter_post_navigation == true %}
+	<section class="post-navigation">
+		<span class="prev-post">
+			{% if page.previous.url %}
+				<a href="{{page.previous.url | prepend: site.baseurl}}">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+					</span>
+					<span class="page-number">{{page.previous.title}}</span>
+				</a>
+			{% endif %}
+		</span>
+		<span class="next-post">
+			{% if page.next.url %}
+				<a href="{{page.next.url | prepend: site.baseurl}}">
+					<span class="page-number">{{page.next.title}}</span>
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			{% endif %}
+		</span>
+	</section>
+{% endif %}
 
+{% if site.disqus_shortname %}
+{% unless page.disqus_disabled %}
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = '{{ site.disqus_shortname }}';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+{% endunless %}
+{% endif %}
+
+</div>
+</div>
