@@ -3,7 +3,7 @@
 #
 
 # Name of your site (displayed in the header)
-name: BaekData's Android
+name: 백데이터의 안드로이드
 
 # Short bio or description (displayed in the header)
 description: 공부하는 개발자의 이야기를 담고 있습니다.
@@ -38,18 +38,18 @@ paginate: 5
 footer-links:
   behance: # https://www.behance.net/<username>
   dribbble:
-  email:
-  facebook:
+  email: wowterry9044@gmail.com
+  facebook: 
   flickr:
   github: baekdata/baekdata.github.io
   googleplus: # anything in your profile username that comes after plus.google.com/
   instagram:
-  linkedin:
+  linkedin: https://www.linkedin.com/in/jongsu-baek-5a82b3aa
   pinterest:
   rss: # just type anything here for a working RSS icon
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   tumblr: # https://<username>.tumblr.com
-  twitter: jekyllrb
+  twitter: 
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # Text under the icons in footer
