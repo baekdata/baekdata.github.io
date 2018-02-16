@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+![_config.yml]({{site.baseurl }}/images/config.png)
+
 Some information about you!
 
 ### More Information
