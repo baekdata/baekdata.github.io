@@ -11,9 +11,9 @@ permalink: /about/
 ### More Information
 
 안녕하세요. 만나서 반갑습니다!
+문의가 있으시면 이메일로 연락부탁드립니다.
 
 
 ### Contact me
 
-문의가 있으시면 하단의 이메일로 연락부탁드립니다.
 [wowterry9044@gmail.com](mailto:wowterry9044@gmail.com)
