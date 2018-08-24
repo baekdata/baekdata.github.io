@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: goooood 활용  활용 및 예제
 tags:
   - android

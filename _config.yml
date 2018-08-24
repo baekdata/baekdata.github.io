@@ -12,7 +12,7 @@ description: 공부하는 개발자의 이야기를 담고 있습니다.
 # Flags below are optional
 #
 disqus_url: <wowterry9044@gmail.com>
-disqus_id: <baekdata>
+disqus_id: <baekdata.android>
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/baekdata/baekdata.github.io/master/images/jekyll_profile.png
