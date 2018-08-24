@@ -42,11 +42,7 @@ layout: default
     {% endif %}
   </div>
 
-  {% include disqus.html %}
-
-  {% if page.comments %}
-  <div id="post-disqus" class="container">
-    {% include disqus_comments.html %}
-  </div>
-  {% endif %}
+{% if page.comments != false %}
+  {% include disqus_comments.html %}
+{% endif %}
 </article>
