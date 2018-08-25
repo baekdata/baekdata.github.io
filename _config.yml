@@ -35,7 +35,7 @@ navigation:
     url: https://github.com/baekdata
 
 # Pagination
-paginate: 5
+paginate: 6
 
 # Includes an icon in the footer for each username you enter
 footer-links:
