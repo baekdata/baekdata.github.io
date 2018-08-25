@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-### Baekdata
+#### Baekdata
 * Software Engineer, Android
 
 ![_config.yml]({{site.baseurl }}/images/profile.png)
@@ -13,23 +13,23 @@ permalink: /about/
 I'm an Android developer who keeps studying.
 
 
-####==my Skills==
+### my Skills
 * Android OS, Java, C++, C
 
 
-###==Education==
+### Education
 
 
-###==Awards==
+### Awards
 * Development of Shinsegae Chatbot System / Grand Prize / SSG.COM / 2018.07
 * Development of Android Application-VoiceToss / Grand Prize / SK Planet / 2014.11
 
 
 
-###==my Experience==
+### my Experience
 
 
-###==Activity==
+### Activity
 
 
 ### Contact me
