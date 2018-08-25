@@ -25,6 +25,8 @@ navigation:
     url: /
   - name: ABOUT
     url: /about
+  - name: INFO
+    url: /info
   - name: ARCHIVE
     url: /archive
   - name: TAGS
