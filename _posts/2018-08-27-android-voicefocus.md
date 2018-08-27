@@ -5,10 +5,12 @@ tags: [Android,  Google]
 comments: true
 ---
 
-> RecognizerIntent.ACTION_RECOGNIZE_SPEECH를 활용한 GooleVoice
+> RecognizerIntent.ACTION_RECOGNIZE_SPEECH를 활용한 GooleVoice  
+#  
 
 
-* ** EditText에 뷰 근처나 혹은 키보드 쪽에서 GoogleVoice 활용 **
+
+* EditText에 뷰 근처나 혹은 키보드 쪽에서 GoogleVoice 활용 
 
 ```java
  Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -22,6 +24,7 @@ comments: true
 > 음성을 제대로 넘겼을 경우는 괜찮지만, 넘기지 못했거나 실행하지 못했을 경우 focus를 잃는다
 > 이럴 경우, EditTextView focus를 가기 위해서는 임의로 가야하기 때문에 불편하다.
 
+#  
 **따라서 해결방법으로는 음성 dialog가 종료될 경우 onResume()이 불리므로 onResume()에서 requestFocus를 
 호출해주면 해결이 가능해진다. ex)editTextView.requestFocus(true);**
 
@@ -42,8 +45,8 @@ comments: true
 ```
 
 > 주의할 점은 delay가 아니라 post(new Runnable){}만을 줄 경우 focus가 갈 때 키보드창까지 오픈이 되어버리는 것을 확인할 수 있다. 따라서 위처럼 Delay를 일정시간 주어야 한다.  
-  
-    
+#    
+#      
     
 
 [google developers guide - google voice input 링크 ](https://developers.google.com/glass/develop/gdk/voice)
