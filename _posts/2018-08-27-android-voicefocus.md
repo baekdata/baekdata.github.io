@@ -5,7 +5,7 @@ tags: [Android,  Google]
 comments: true
 ---
 
-> RecognizerIntent.ACTION_RECOGNIZE_SPEECH를 활용한 GooleVoice  
+> RecognizerIntent, GooleVoice  
 
 ---
 
